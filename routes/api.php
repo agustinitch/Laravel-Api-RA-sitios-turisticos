@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApiProductoController;
+use App\Http\Controllers\DownloadController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //ruta para dar acceso a todas las rutas
-Route::apiResource('productos', ApiProductoController::class);
+Route::apiResource('modelos', ApiProductoController::class);
+
+//ruta de descarga
+// Route::apiResource('descarga', DownloadController::class);
+Route::get('descarga/download', [DownloadController::class, 'downloadfile']);
