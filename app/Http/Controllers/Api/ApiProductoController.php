@@ -16,11 +16,11 @@ class ApiProductoController extends Controller
      */
     public function index()
     {
-        $posts = Producto::all();
+        $modelos = Producto::all();
 
         return response()->json([
             'status'=>true,
-            'posts'=> $posts
+            'modelos'=> $modelos
         ]);
     }
 
@@ -99,14 +99,14 @@ class ApiProductoController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreProductoRequest $request, Producto $post)
+    public function update(StoreProductoRequest $request, Producto $modelos)
     {
-        $post->update($request->all());
+        $modelos->update($request->all());
 
         return response()->json([
             "status" => true,
             "message" => "Put Update done successfully",
-            "post" => $post
+            "post" => $modelos
         ]);
     }
 
