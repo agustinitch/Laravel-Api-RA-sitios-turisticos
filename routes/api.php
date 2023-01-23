@@ -24,5 +24,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('modelos', ApiProductoController::class);
 
 //ruta de descarga
-// Route::apiResource('descarga', DownloadController::class);
-Route::get('descarga/download', [DownloadController::class, 'downloadfile']);
+Route::get('descargaimage/{id}', [DownloadController::class, 'downloadimage']);
