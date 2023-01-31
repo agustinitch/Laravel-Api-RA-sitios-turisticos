@@ -10,7 +10,7 @@
 			<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
 				
 				<form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data" style="margin: 50px;">
-
+					<!-- @dump($errors) -->
 					@csrf
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8 mt-5 mx-7" style="grid-gap: 50px;">
 						<div class="grid grid-cols-1">
@@ -23,13 +23,17 @@
 						</div>
 					</div>
 
+					
+					
+
 					<!-- Para ver la imagen seleccionada, de lo contrario no se -->
 					<div class="grid grid-cols-1 mt-5 mx-7">
 						<img id="imagenSeleccionada" style="max-height: 300px; display: block; margin: auto;">           
 					</div>
 
+					<!-- Para subir la imagen -->
 					<div class="grid grid-cols-1 mt-5 mx-7">
-					<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1"></label>
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1"></label>
 						<div class='flex items-center justify-center w-full'>
 							<label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
 								<div class='flex flex-col items-center justify-center pt-7'>
@@ -38,7 +42,22 @@
 								</svg>
 								<p class='text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Subir Imagen</p>
 								</div>
-							<input name="imagen" id="imagen" type='file' class="hidden" />  <!-- el clas hidden oculta un texto que dice seleccionen el archivo-->
+								<input name="imagen" id="imagen" type='file' class="hidden" />  <!-- el clas hidden oculta un texto que dice seleccionen el archivo-->
+								
+							</label>
+						</div>
+					</div>
+
+					<!-- Para subir el modelo -->
+					<div class="grid grid-cols-1 mt-5 mx-7">
+						<label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold mb-1"></label>
+						<div class='flex items-center justify-center w-full'>
+							<label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-purple-300 group'>
+								<div class='flex flex-col items-center justify-center pt-7'>
+									<img src="https://www.marxentlabs.com/wp-content/uploads/2020/04/marxent_glb_file_format_icon-768x985.jpeg" alt="modelo_glb" style="width: 100%; max-width: 35px;">
+									<p class='text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Subir Modelo</p>
+								</div>
+								<input name="modelo" id="modelo" type='file' class="hidden" />  <!-- el clas hidden oculta un texto que dice seleccionen el archivo-->
 							</label>
 						</div>
 					</div>

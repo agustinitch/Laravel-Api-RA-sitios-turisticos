@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductoRequest;
 use App\Models\Producto;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 
 class DownloadController extends Controller
 {
@@ -31,6 +28,25 @@ class DownloadController extends Controller
         $image = $product->imagen;
 
         return Response::download(public_path("imagen/$image"));
+        // return response()->json($image);
+    }
+
+    public function downloadmodelo($id)
+    {
+        // Obtener el recurso correspondiente al ID especificado
+        $product = Producto::find($id);
+
+        // Comprobar si el recurso existe
+        if (!$product) {
+            return response()->json([
+                'error' => 'Product not found'
+            ], 404);
+        }
+
+        // Devolver la respuesta con el recurso
+        $model = $product->modelo;
+
+        return Response::download(public_path("modelo/$model"));
         // return response()->json($image);
     }
 }

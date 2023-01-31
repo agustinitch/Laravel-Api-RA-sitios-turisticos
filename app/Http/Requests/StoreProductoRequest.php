@@ -26,7 +26,8 @@ class StoreProductoRequest extends FormRequest
         return [
             "nombre" => "required|max:70",
             "descripcion" => "required", 
-            "imagen" => "required|image|mimes:jpeg,png,jpg"
+            "imagen" => "required|image",
+            "modelo" => "required|file"
         ];
     }
 }

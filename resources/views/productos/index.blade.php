@@ -12,6 +12,7 @@
 							<th class="border px-4 py-2">NOMBRE</th>
 							<th class="border px-4 py-2">DESCRIPCION</th>
 							<th class="border px-14 py-1">IMAGEN</th>
+							<th style="display: none;">MODELO</th>
 							<th class="border px-4 py-2">ACCIONES</th>
 						</tr>
 					</thead>
@@ -25,6 +26,7 @@
 							<td class="border-b-2 border-sky-200 px-14 py-1" style="width: 300px;">
 								<img src="/imagen/{{$producto->imagen}}" style="display: block; margin: auto; max-height: 250px;">
 							</td>
+							
 							<td class="border-b-2 border-sky-200 px-4 py-2">
 								<div class="flex justify-center gap-10 rounded-lg text-lg" role="group">
 									<!-- boton editar -->
