@@ -47,7 +47,7 @@ class ProductoController extends Controller
 			'nombre' => 'required', 
 			'descripcion' => 'required',
 			'imagen' => 'required|image',
-			'modelo' => 'file'
+			'modelo' => 'file|max:15915254'
 		]);
 
 		// $infoPath = pathinfo(public_path('/modelo/Arbol.glb'));
@@ -59,7 +59,7 @@ class ProductoController extends Controller
 		//obtiene y guarda la imagen en la carpeta ./public/imagen
 		if ($imagen = $request->file('imagen')) {
 			$rutaGuardarImg = 'imagen/';
-			$imagenProducto = date('YmdHis') . "." . $imagen->getClientOriginalExtension();
+			$imagenProducto = "img" . date('YmdHis') . "." . $imagen->getClientOriginalExtension();
 			$imagen->move($rutaGuardarImg, $imagenProducto);
 			$producto['imagen'] = "$imagenProducto";
 		}

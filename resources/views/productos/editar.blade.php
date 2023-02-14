@@ -55,7 +55,7 @@
 									<!-- </svg> -->
 									<p class='lowercase text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Subir Modelo</p>
 								</div>
-								<input name="modelo" id="modelo" type='file' class="hidden" />
+								<input name="modelo" id="modelo" type='file' />
 						
 							</label>
 						</div>

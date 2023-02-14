@@ -57,7 +57,7 @@
 									<img src="https://www.marxentlabs.com/wp-content/uploads/2020/04/marxent_glb_file_format_icon-768x985.jpeg" alt="modelo_glb" style="width: 100%; max-width: 35px;">
 									<p class='text-sm text-gray-400 group-hover:text-purple-600 pt-1 tracking-wider'>Subir Modelo</p>
 								</div>
-								<input name="modelo" id="modelo" type='file' class="hidden" />  <!-- el clas hidden oculta un texto que dice seleccionen el archivo-->
+								<input name="modelo" id="modelo" type='file' class="" />  <!-- el clas hidden oculta un texto que dice seleccionen el archivo-->
 							</label>
 						</div>
 					</div>
