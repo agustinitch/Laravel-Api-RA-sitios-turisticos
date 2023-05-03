@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('productos', function (Blueprint $table) {
             // Columna para agregar modelo GLB
-            $table->string('modelo')->nullable()->after('imagen');
+            $table->string('modelo')->after('imagen');
         });
     }
 

@@ -1,9 +1,9 @@
 <x-app-layout>
-	<div class="py-12">
+	<div class="py-12" style="background-image: url('http://escolar.itchetumal.edu.mx/moodle/pluginfile.php/1/theme_moove/loginbgimg/1628214763/banner2.jpg'); background-repeat: no-repeat; background-size: cover;">
 		<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-			<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg ">
+			<div class="bg-black overflow-hidden shadow-xl sm:rounded-lg" style="background-color: #fff">
 
-				<a type="button" href="{{ route('productos.create') }}" class="bg-indigo-500 my-8 px-12 py-2 w-full rounded text-white text-center text-2xl font-bold hover:bg-indigo-700 transition duration-200 each-in-out">Crear</a>
+				<a type="button" href="{{ route('productos.create') }}" style="display: block; margin: 15px auto; width: 200px;" class="bg-indigo-500 px-12 py-2 rounded text-white text-center text-2xl font-bold hover:bg-indigo-700 transition duration-200 each-in-out">Crear</a>
 
 				<table class=" table-auto w-full">
 					<thead>
@@ -58,24 +58,31 @@
 <script>
 	(function() {
 		'use strict'
-		//debemos crear la clase formEliminar dentro del form del boton borrar
-		//recordar que cada registro a eliminar esta contenido en un form  
+		// Buscamos todos los formularios que tengan la clase "formEliminar"
 		var forms = document.querySelectorAll('.formEliminar')
+
+		// Iteramos sobre cada uno de los formularios encontrados
 		Array.prototype.slice.call(forms)
 			.forEach(function(form) {
+				// Agregamos un evento "submit" a cada formulario
 				form.addEventListener('submit', function(event) {
+					// Evitamos que el formulario se envíe automáticamente
 					event.preventDefault()
 					event.stopPropagation()
+
+					// Mostramos un mensaje de confirmación al usuario usando la librería SweetAlert2
 					Swal.fire({
-						title: '¿Confirma la eliminación del registro?',
+						title: '¿Confirma la eliminación?',
 						icon: 'info',
 						showCancelButton: true,
 						confirmButtonColor: '#20c997',
 						cancelButtonColor: '#6c757d',
 						confirmButtonText: 'Confirmar'
 					}).then((result) => {
+						// Si el usuario confirma la eliminación, enviamos el formulario
 						if (result.isConfirmed) {
 							this.submit();
+							// Mostramos un mensaje de éxito al usuario usando la librería SweetAlert2
 							Swal.fire('¡Eliminado!', 'El registro ha sido eliminado exitosamente.', 'success');
 						}
 					})

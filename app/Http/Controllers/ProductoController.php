@@ -19,7 +19,7 @@ class ProductoController extends Controller
 	public function index()
 	{
 		//paginacion muestra solo 5 productos
-		$productos = Producto::paginate(5);
+		$productos = Producto::paginate(3);
 
 		//llama a los productos
 		return view('productos.index', compact('productos'));  
@@ -49,10 +49,6 @@ class ProductoController extends Controller
 			'imagen' => 'required|image',
 			'modelo' => 'file|max:15915254'
 		]);
-
-		// $infoPath = pathinfo(public_path('/modelo/Arbol.glb'));
-		// $extension = $infoPath['extension'];
-		// dd($extension);
 
 		$producto = $request->all();
 
@@ -151,8 +147,16 @@ class ProductoController extends Controller
 	 */
 	public function destroy(Producto $producto)
 	{
-		// $file = $producto->name;
-		// Storage::delete("public/imagen/$file");
+		$rutaImagen = public_path('imagen/' . $producto->imagen);
+		if (file_exists($rutaImagen)) {
+			unlink($rutaImagen);
+		}
+
+		$rutaModelo = public_path('modelo/' . $producto->modelo);
+		if (file_exists($rutaModelo)) {
+			unlink($rutaModelo);
+		}
+		
 		$producto->delete();
 		return redirect()->route('productos.index');
 	}

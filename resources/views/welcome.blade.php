@@ -307,7 +307,7 @@
             background-color: #259ef7;
             border: 1px solid #259ef7;
         }
-        @media (min-width:640px) {
+        @media (max-width:2560px) {
             .sm\:rounded-lg {
                 border-radius: .5rem
             }
@@ -412,13 +412,35 @@
         body {
             font-family: 'Nunito', sans-serif, 'Monserat';
         }
+
+        .jstyle {
+            background-image: url(http://escolar.itchetumal.edu.mx/moodle/pluginfile.php/1/theme_moove/loginbgimg/1628214763/banner2.jpg); 
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .jstyle .int_bienvenida{
+            padding: 60px; 
+            background-color: #fff;
+            border: 1px solid #fff; 
+            border-radius: 35px;
+        }
+
+        @media (max-width:767px) {
+            .jstyle .int_bienvenida {
+                padding: 30px; 
+                background-color: #fff; 
+                border: 1px solid #fff; 
+                border-radius: 35px;
+            }
+        }
     </style>
 </head>
 
 <body class="antialiased">
-    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-2 sm:pt-0 jstyle">
         @if (Route::has('login'))
-        <div class="hidden px-6 py-4 sm:block" style="padding: 60px; background-color: #fff; border: 1px solid #fff; border-radius: 35px;">
+        <div class="hidden px-6 py-4 sm:block int_bienvenida" >
             @auth
             <h2 style="font-size: 36px;">Hola {{ Auth::user()->name }}, Bienvenido de nuevo</h2>
             <a href="{{ url('/productos/') }}" class="btn-continuar" >CONTINUAR</a>

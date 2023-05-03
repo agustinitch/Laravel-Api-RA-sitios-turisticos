@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <!-- <img src="https://itguaymas.edu.mx/img/logo_tecnm.png" alt="logo tec" style="width: 100%; max-width: 250px;"> -->
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

@@ -9,11 +9,6 @@ class DownloadController extends Controller
 {
     public function downloadimage($id)
     {
-        // $arch = $request->all();
-        // $filepath = public_path("imagen/$arch");
-        // return Response::download(public_path("imagen/20230122190333.jpeg"));
-        
-        
         // Obtener el recurso correspondiente al ID especificado
         $product = Producto::find($id);
 
@@ -28,7 +23,7 @@ class DownloadController extends Controller
         $image = $product->imagen;
 
         return Response::download(public_path("imagen/$image"));
-        // return response()->json($image);
+        
     }
 
     public function downloadmodelo($id)
@@ -47,6 +42,6 @@ class DownloadController extends Controller
         $model = $product->modelo;
 
         return Response::download(public_path("modelo/$model"));
-        // return response()->json($image);
+        
     }
 }

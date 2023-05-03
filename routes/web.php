@@ -14,12 +14,12 @@ use App\Http\Controllers\ProductoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	return view('welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::resource('/productos', ProductoController::class);
-        Route::get('/dashboard', function(){
-            return view('dashboard');
-    })->name('dashboard');
+	Route::resource('/productos', ProductoController::class);
+		Route::get('/dashboard', function(){
+			return view('dashboard');
+	})->name('dashboard');
 });
